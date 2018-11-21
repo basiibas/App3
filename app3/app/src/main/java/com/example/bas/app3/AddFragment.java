@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -134,10 +135,18 @@ public class AddFragment extends Fragment implements OnMapReadyCallback , Google
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng norway = new LatLng(59.911491,10.757933);
-        CameraUpdate minPosition = CameraUpdateFactory.newLatLngZoom(norway, 12);
-        //mMap.animateCamera(minPosition);
-        mMap.moveCamera(minPosition);
+        LatLng firstPosition = new LatLng( 59.92027, 10.734576);
+
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.setBuildingsEnabled(true);
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .tilt(50)
+                .zoom(16)
+                .target(firstPosition)
+                .build();
+        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        mMap.setMinZoomPreference(15);
+
         mMap.setOnMapClickListener(this);
     }
 
@@ -145,8 +154,7 @@ public class AddFragment extends Fragment implements OnMapReadyCallback , Google
     @Override
     public void onMapClick(LatLng latLng) {
         mMap.clear();
-        mMap.addMarker(new MarkerOptions().position(latLng).title("Clicked"));
-        //Toast.makeText(getContext(), String.valueOf(latLng), Toast.LENGTH_SHORT).show();
+        mMap.addMarker(new MarkerOptions().position(latLng));
         selectedPos = latLng;
     }
 }

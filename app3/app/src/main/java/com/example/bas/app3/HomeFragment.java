@@ -16,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -137,7 +138,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng firstPosition = new LatLng(59.913868, 10.752245);
+        LatLng firstPosition = new LatLng( 59.92027, 10.734576);
 
         for (MapPoint point: pointList
              ) {
@@ -158,9 +159,15 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
 
         mMap.setOnMarkerClickListener(this);
 
-
-        CameraUpdate minPosition = CameraUpdateFactory.newLatLngZoom(firstPosition, 12);
-        mMap.moveCamera(minPosition);
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.setBuildingsEnabled(true);
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .tilt(50)
+                .zoom(16)
+                .target(firstPosition)
+                .build();
+        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        mMap.setMinZoomPreference(15);
     }
 
 
