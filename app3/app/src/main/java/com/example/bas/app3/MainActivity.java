@@ -1,10 +1,10 @@
 package com.example.bas.app3;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,9 +17,27 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,
-                new HomeFragment()).commit();
+        if(savedInstanceState !=null){
+            Fragment savedFragment = getSupportFragmentManager().getFragment(savedInstanceState, "FRAGMENT");
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,
+                    savedFragment).commit();
+        }else{
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,
+                    new HomeFragment()).commit();
+        }
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_layout);
+        if(fragment != null){
+            getSupportFragmentManager().putFragment(outState,"FRAGMENT", fragment);
+        }
+    }
+
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -46,3 +64,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 }
+
+

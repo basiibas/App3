@@ -5,44 +5,79 @@
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="186dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calendarView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="25dp"
+        android:text="Fra"
+        android:textColor="@android:color/black"
+        android:textSize="26dp" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="338dp"
-        android:layout_height="74dp"
+        android:layout_width="112dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/calendarView"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="26dp"
+        android:layout_toEndOf="@+id/textView"
+        android:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spinner"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/spinner"
+        android:text="Til"
+        android:textColor="@android:color/black"
+        android:textSize="26dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="110dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/calendarView"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="242dp"
+        android:layout_marginStart="241dp"
+        android:layout_marginTop="26dp"
         android:background="@android:color/white" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="335dp"
-        android:layout_height="74dp"
-        android:layout_alignStart="@+id/spinner"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="151dp"
-        android:text="Velg tidspunkt" />
-
-    <Button
         android:id="@+id/btnBook"
-        android:layout_width="276dp"
-        android:layout_height="77dp"
+        android:layout_width="202dp"
+        android:layout_height="67dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="90dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/buttonborder"
         android:text="Book" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="295dp"
+        android:layout_height="71dp"
+        android:layout_below="@+id/calendarView"
+        android:layout_alignStart="@+id/spinner"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginBottom="109dp"
+        android:text="Velg rom" />
 
 </RelativeLayout>
