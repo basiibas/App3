@@ -6,78 +6,85 @@
     <CalendarView
         android:id="@+id/calenderBook"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:background="@android:color/white" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/Time"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/calenderBook"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="25dp"
-        android:text="Start"
-        android:textColor="@android:color/black"
-        android:textSize="26dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
 
-    <Spinner
-        android:id="@+id/startSpinnerBook"
-        android:layout_width="112dp"
-        android:layout_height="38dp"
-        android:layout_below="@+id/calenderBook"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="26dp"
-        android:layout_toEndOf="@+id/textView"
-        android:background="@android:color/white" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/calenderBook"
+            android:layout_weight="1"
+            android:paddingRight="5dp"
+            android:text="Start"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="26dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/startSpinnerBook"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/startSpinnerBook"
-        android:text="End"
-        android:textColor="@android:color/black"
-        android:textSize="26dp" />
+        <Spinner
+            android:id="@+id/startSpinnerBook"
+            android:layout_width="50dp"
+            android:layout_height="38dp"
+            android:layout_below="@+id/calenderBook"
+            android:layout_toEndOf="@+id/textView"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
 
-    <Spinner
-        android:id="@+id/endSpinnerBook"
-        android:layout_width="110dp"
-        android:layout_height="38dp"
-        android:layout_below="@+id/calenderBook"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="262dp"
-        android:layout_marginTop="26dp"
-        android:background="@android:color/white" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/startSpinnerBook"
+            android:layout_toEndOf="@+id/startSpinnerBook"
+            android:layout_weight="1"
+            android:paddingRight="5dp"
+            android:text="End"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/black"
+            android:textSize="26dp" />
+
+        <Spinner
+            android:id="@+id/endSpinnerBook"
+            android:layout_width="50dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/calenderBook"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnBook"
         android:layout_width="202dp"
-        android:layout_height="67dp"
-        android:layout_alignParentEnd="true"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/avaiableRoom"
+        android:layout_marginBottom="5dp"
         android:layout_marginEnd="92dp"
-        android:layout_marginBottom="23dp"
         android:background="@drawable/buttonborder"
         android:text="Book" />
 
     <Button
         android:id="@+id/avaiableRoom"
         android:layout_width="295dp"
-        android:layout_height="71dp"
-        android:layout_below="@+id/calenderBook"
-        android:layout_alignStart="@+id/startSpinnerBook"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-31dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginBottom="115dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/Time"
+        android:layout_centerHorizontal="true"
         android:text="Avaiable room" />
 
 </RelativeLayout>
