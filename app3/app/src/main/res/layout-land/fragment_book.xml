@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <CalendarView
+                android:id="@+id/calenderBook"
+                android:layout_width="match_parent"
+                android:layout_height="235dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/white" />
+
+            <LinearLayout
+                android:id="@+id/Time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/calenderBook"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/calenderBook"
+                    android:layout_weight="1"
+                    android:paddingRight="5dp"
+                    android:text="Start"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/black"
+                    android:textSize="26dp" />
+
+                <Spinner
+                    android:id="@+id/startSpinnerBook"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/calenderBook"
+                    android:layout_toEndOf="@+id/textView"
+                    android:layout_weight="1"
+                    android:background="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@+id/startSpinnerBook"
+                    android:layout_toEndOf="@+id/startSpinnerBook"
+                    android:layout_weight="1"
+                    android:paddingRight="5dp"
+                    android:text="End"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/black"
+                    android:textSize="26dp" />
+
+                <Spinner
+                    android:id="@+id/endSpinnerBook"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/calenderBook"
+                    android:layout_weight="1"
+                    android:background="@android:color/white" />
+
+                <Button
+                    android:id="@+id/avaiableRoom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_weight="1"
+                    android:text="Avaiable room" />
+
+                <Button
+                    android:id="@+id/btnBook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttonborder"
+                    android:text="Book" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
