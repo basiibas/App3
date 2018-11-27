@@ -339,7 +339,8 @@ public class BookFragment extends Fragment {
                         }
                         avaiableRoom.setText(txt.getText().toString());
                         dialog.dismiss();
-                        Toast.makeText(getContext(), selectedRoomId, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(), selectedRoomId, Toast.LENGTH_SHORT).show();
+                        confirm = true;
 
                     }
                 });
