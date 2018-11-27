@@ -70,14 +70,15 @@
 
     <Button
         android:id="@+id/avaiableRoom"
-        android:layout_width="295dp"
-        android:layout_height="71dp"
+        android:layout_width="360dp"
+        android:layout_height="82dp"
         android:layout_below="@+id/calenderBook"
         android:layout_alignStart="@+id/startSpinnerBook"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="-31dp"
+        android:layout_marginStart="-65dp"
         android:layout_marginTop="81dp"
-        android:layout_marginBottom="115dp"
-        android:text="Avaiable room" />
+        android:layout_marginBottom="104dp"
+        android:text="Avaiable room"
+        android:textSize="26dp" />
 
 </RelativeLayout>

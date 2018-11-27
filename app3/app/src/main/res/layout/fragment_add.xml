@@ -10,9 +10,9 @@
         android:id="@+id/mapAdd"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="370dp"
+        android:layout_height="301dp"
         android:layout_above="@+id/nameAdd"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView3"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="9dp"
         tools:context=".MainActivity" />
@@ -71,5 +71,17 @@
         android:layout_marginBottom="6dp"
         android:background="@drawable/buttonborder"
         android:text="Add" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/holo_blue_light"
+        android:text="Click on the map"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30dp" />
 
 </RelativeLayout>

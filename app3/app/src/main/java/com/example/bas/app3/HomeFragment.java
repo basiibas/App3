@@ -1,5 +1,6 @@
 package com.example.bas.app3;
 
+import android.graphics.Canvas;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -149,6 +151,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
                         .icon(BitmapDescriptorFactory.defaultMarker(
                             new Random().nextInt(360))));
             */
+
+
+
             mMap.addMarker(new MarkerOptions().position(position).title(
                     point.getName()).snippet(String.valueOf(point.getId())+","+point.getName()+","
                             +point.getDescription()));

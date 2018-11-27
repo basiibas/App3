@@ -1,11 +1,15 @@
 package com.example.bas.app3;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -68,14 +73,23 @@ public class AddFragment extends Fragment implements OnMapReadyCallback , Google
             newPoint = new MapPoint(nameAdd.getText().toString(),descriptionAdd.getText().toString(),
                     selectedPos.latitude, selectedPos.longitude);
 
+
             GetPointTask saveNewPoint = new
                     GetPointTask(newPoint.getName(), newPoint.getDescription(), String.valueOf(newPoint.getLatitube()),
                     String.valueOf(newPoint.getLongitude()));
             saveNewPoint.execute();
 
-            mMap.clear();
-            nameAdd.setText("");
-            descriptionAdd.setText("");
+            HomeFragment homeFragment = new HomeFragment();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.replace(R.id.fragment_layout,
+                    homeFragment).commit();
+
+            BottomNavigationView bottomNav = getActivity().findViewById(R.id.bottom_navigation);
+
+            bottomNav.getMenu().findItem(R.id.nav_home).setChecked(true);
+
+            Toast.makeText(getContext(), "Saved!", Toast.LENGTH_LONG).show();
 
         }
 
@@ -120,12 +134,6 @@ public class AddFragment extends Fragment implements OnMapReadyCallback , Google
             } catch (Exception e) {
                 return "Noen gikk feil";
             }
-        }
-
-        @Override
-        protected void onPostExecute(String resultat) {
-            Toast.makeText(getContext(), resultat, Toast.LENGTH_LONG).show();
-
         }
 
     }
