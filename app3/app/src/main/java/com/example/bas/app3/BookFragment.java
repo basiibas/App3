@@ -48,6 +48,7 @@ public class BookFragment extends Fragment {
     List<String> busyRoomList;
     ListView listView = null;
     boolean confirm;
+    int checkStartDate, checkEndDate;
 
 
     @Nullable
@@ -74,11 +75,16 @@ public class BookFragment extends Fragment {
         avaiableRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bookingList.clear();
-                allRoomList.clear();
-                busyRoomList.clear();
-                GetBestillingTask getBestillingTask = new GetBestillingTask();
-                getBestillingTask.execute();
+                //Sjekker om End er større enn Start.
+                if(checkStartDate>=checkEndDate){
+                    Toast.makeText(getContext(), "Ugyldig tid! Vennglist velg et annet tidspunkt", Toast.LENGTH_SHORT).show();
+                }else{
+                    bookingList.clear();
+                    allRoomList.clear();
+                    busyRoomList.clear();
+                    GetBestillingTask getBestillingTask = new GetBestillingTask();
+                    getBestillingTask.execute();
+                }
 
             }
         });
@@ -142,7 +148,9 @@ public class BookFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String date = String.valueOf(parent.getItemAtPosition(position));
-                //String[] dateString = date.split(":");
+                String[] dateString = date.split(":");
+                checkStartDate = Integer.parseInt(dateString[0]);
+
                 startTime = date;
                 avaiableRoom.setText("Avaiable Room");
                 confirm = false;
@@ -164,11 +172,28 @@ public class BookFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String date = String.valueOf(parent.getItemAtPosition(position));
-                //String[] dateString = date.split(":");
+                String[] dateString = date.split(":");
+                checkEndDate = Integer.parseInt(dateString[0]);
+
+                /*
+                if(checkDate == 10 || checkDate == 20){
+                    //checkDate.replace("0","");
+                    Toast.makeText(getContext(), String.valueOf(checkDate), Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(getContext(), String.valueOf(checkDate), Toast.LENGTH_SHORT).show();
+                }
+                */
+
+
+
+
+                //Toast.makeText(getContext(), checkDate, Toast.LENGTH_SHORT).show();
 
                 avaiableRoom.setText("Avaiable Room");
                 confirm = false;
                 endTime = date;
+                //Toast.makeText(getContext(), endTime, Toast.LENGTH_SHORT).show();
 
             }
 

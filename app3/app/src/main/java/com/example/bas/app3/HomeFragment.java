@@ -1,5 +1,6 @@
 package com.example.bas.app3;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -46,7 +48,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container,false);
 
-        pointList = new ArrayList();
+        pointList = new ArrayList<>();
 
         getJSON task = new getJSON();
         task.execute(new
@@ -140,6 +142,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         LatLng firstPosition = new LatLng( 59.92027, 10.734576);
 
         for (MapPoint point: pointList
@@ -152,11 +155,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
                             new Random().nextInt(360))));
             */
 
+            mMap.addMarker(new MarkerOptions()
+                    .position(position)
+                    .title(point.getName())
+                    .snippet(String.valueOf(point.getId())+","+point.getName()+","
+                            +point.getDescription())
+                    .icon(BitmapDescriptorFactory.fromBitmap(customeMarker(point.getName()))));
 
-
-            mMap.addMarker(new MarkerOptions().position(position).title(
-                    point.getName()).snippet(String.valueOf(point.getId())+","+point.getName()+","
-                            +point.getDescription()));
 
         }
 
@@ -173,6 +178,21 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, Google
                 .build();
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         mMap.setMinZoomPreference(15);
+    }
+
+    private Bitmap customeMarker(String markerInText){
+        View markerLayout = getLayoutInflater().inflate(R.layout.marker_layout, null);
+        TextView markerText = (TextView)markerLayout.findViewById(R.id.markertext);
+        markerText.setText(markerInText);
+
+        markerLayout.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        markerLayout.layout(0, 0, markerLayout.getMeasuredWidth(), markerLayout.getMeasuredHeight());
+
+        final Bitmap bitmap = Bitmap.createBitmap(markerLayout.getMeasuredWidth(), markerLayout.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        markerLayout.draw(canvas);
+        return  bitmap;
+
     }
 
 

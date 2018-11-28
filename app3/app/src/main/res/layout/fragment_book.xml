@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d7d7d7">
 
     <CalendarView
         android:id="@+id/calenderBook"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="305dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
@@ -19,66 +20,73 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/calenderBook"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="10dp"
         android:text="Start"
         android:textColor="@android:color/black"
         android:textSize="26dp" />
 
     <Spinner
         android:id="@+id/startSpinnerBook"
-        android:layout_width="112dp"
-        android:layout_height="38dp"
+        android:layout_width="160dp"
+        android:layout_height="41dp"
         android:layout_below="@+id/calenderBook"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="26dp"
-        android:layout_toEndOf="@+id/textView"
-        android:background="@android:color/white" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="46dp"
+        android:background="@android:color/white"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/startSpinnerBook"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/startSpinnerBook"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-36dp"
+        android:layout_marginEnd="82dp"
         android:text="End"
         android:textColor="@android:color/black"
         android:textSize="26dp" />
 
     <Spinner
         android:id="@+id/endSpinnerBook"
-        android:layout_width="110dp"
-        android:layout_height="38dp"
+        android:layout_width="160dp"
+        android:layout_height="41dp"
         android:layout_below="@+id/calenderBook"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="262dp"
-        android:layout_marginTop="26dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="28dp"
         android:background="@android:color/white" />
 
     <Button
         android:id="@+id/btnBook"
-        android:layout_width="202dp"
-        android:layout_height="67dp"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="23dp"
-        android:background="@drawable/buttonborder"
-        android:text="Book" />
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/buttonborderbooking"
+        android:text="Book"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/avaiableRoom"
-        android:layout_width="360dp"
-        android:layout_height="82dp"
+        android:layout_width="306dp"
+        android:layout_height="46dp"
         android:layout_below="@+id/calenderBook"
-        android:layout_alignStart="@+id/startSpinnerBook"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="-65dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/colorAccent"
         android:text="Avaiable room"
+        android:textColor="@android:color/white"
         android:textSize="26dp" />
 
 </RelativeLayout>
